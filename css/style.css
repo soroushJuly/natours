@@ -275,6 +275,56 @@ body {
     font-size: 5rem;
     font-weight: 100; }
 
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  position: relative;
+  backface-visibility: hidden;
+  font-size: 1.6rem;
+  transform: skewX(-12deg); }
+  .story__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    backface-visibility: hidden;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(35 at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg); }
+  .story__img {
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    backface-visibility: hidden;
+    transition: all 0.5s; }
+  .story__text {
+    transform: skewX(12deg); }
+  .story__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden; }
+  .story:hover .story__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    backface-visibility: hidden; }
+  .story:hover .story__img {
+    transform: translateX(-4rem) scale(1);
+    backface-visibility: hidden;
+    filter: blur(2px) brightness(80%); }
+
 .composition {
   position: relative; }
   .composition:hover .composition__photo:not(:hover) {
@@ -321,6 +371,19 @@ body {
     color: transparent; }
   .feature-box:hover {
     transform: translateY(-1rem) scale(1.05); }
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.3; }
+  .bg-video__content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
 
 .header {
   height: 95vh;
@@ -397,3 +460,7 @@ body {
   background-color: #f7f7f7;
   margin-top: -11rem;
   padding: 25rem 0 15rem 0; }
+
+.section-stories {
+  position: relative;
+  padding: 15rem 0; }
