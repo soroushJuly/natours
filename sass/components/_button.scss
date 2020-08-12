@@ -37,6 +37,15 @@
     }
   }
 
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+    padding: 1.2rem 3.5rem;
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
   /* this is initial state */
   &::after {
     content: "";
