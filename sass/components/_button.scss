@@ -1,0 +1,84 @@
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    /* set all transtion times */
+    transition: all 0.4s;
+    position: relative;
+    font-size: $default-font-size;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    /* x-offset y-offset blur(looks far) */
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  /* in click: */
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+    padding: 1.2rem 3.5rem;
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  /* this is initial state */
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    /* last one is delay */
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* ghabl az shuru 0 apply mishe */
+    animation-fill-mode: backwards;
+  }
+  &-text {
+    transition: all 0.3s;
+    &:link,
+    &:visited {
+      font-size: 2rem;
+      color: $color-primary;
+      display: inline-block;
+      text-decoration: none;
+      border-bottom: 1px solid $color-primary;
+      padding: 3px;
+    }
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+      transform: translateY(-0.2rem);
+    }
+    &:active {
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+      transform: translateY(0);
+    }
+  }
+}

@@ -1,0 +1,19 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* inherit replace the declarations */
+  box-sizing: inherit;
+}
+html {
+  /* // this will declare the root font size */
+  /* // 10 is easy to work with it in rem and em */
+  /* to handle changes in default font that people make */
+  font-size: 62.5%;
+}
+
+body {
+  /* here we declare a better one */
+  box-sizing: border-box;
+}

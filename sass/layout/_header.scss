@@ -1,0 +1,38 @@
+.header {
+  height: 95vh;
+  /* gradient then the image */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  /* to make the top of image stable as the screen changes */
+  background-position: top;
+  /* cliping part that should be shown */
+
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__text-box {
+    position: absolute;
+    /* in relation to parent element */
+    top: 40%;
+    left: 50%;
+    /* in relation with him self */
+    transform: translate(-50%, -50%);
+    /* centering texts and inlines */
+    text-align: center;
+  }
+}
