@@ -120,7 +120,7 @@ body {
 .btn {
   /* in click: */
   /* this is initial state */ }
-  .btn:link, .btn:visited {
+  .btn, .btn:link, .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
     display: inline-block;
@@ -129,15 +129,18 @@ body {
     /* set all transtion times */
     transition: all 0.4s;
     position: relative;
-    font-size: 1.6rem; }
-  .btn:hover {
+    font-size: 1.6rem;
+    border: none;
+    cursor: pointer; }
+  .btn:hover, .btn:focus {
     transform: translateY(-3px);
     /* x-offset y-offset blur(looks far) */
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-    .btn:hover::after {
+    .btn:hover::after, .btn:focus::after {
       transform: scaleX(1.4) scaleY(1.6);
       opacity: 0; }
-  .btn:active {
+  .btn:active, .btn:focus {
+    outline: none;
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
   .btn--white {
@@ -284,23 +287,20 @@ body {
   padding: 6rem;
   padding-left: 9rem;
   position: relative;
-  backface-visibility: hidden;
   font-size: 1.6rem;
   transform: skewX(-12deg); }
   .story__shape {
     width: 15rem;
     height: 15rem;
     float: left;
-    backface-visibility: hidden;
     -webkit-shape-outside: circle(50% at 50% 50%);
     shape-outside: circle(50% at 50% 50%);
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(35 at 50% 50%);
-    transform: translateX(-3rem) skewX(12deg); }
+    transform: translateX(-4rem) skewX(12deg); }
   .story__img {
     height: 100%;
-    transform: translateX(-4rem) scale(1.4);
-    backface-visibility: hidden;
+    transform: translateX(-4rem) scale(1.3);
     transition: all 0.5s; }
   .story__text {
     transform: skewX(12deg); }
@@ -314,8 +314,7 @@ body {
     font-weight: 400;
     text-align: center;
     opacity: 0;
-    transition: all 0.5s;
-    backface-visibility: hidden; }
+    transition: all 0.5s; }
   .story:hover .story__caption {
     opacity: 1;
     transform: translate(-50%, -50%);
@@ -323,7 +322,80 @@ body {
   .story:hover .story__img {
     transform: translateX(-4rem) scale(1);
     backface-visibility: hidden;
-    filter: blur(2px) brightness(80%); }
+    filter: blur(4px) brightness(80%); }
+
+.form__input {
+  display: block;
+  width: 90%;
+  color: inherit;
+  font-size: 1.5rem;
+  font-family: inherit;
+  padding: 1.2rem 2rem;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-bottom: 3px solid transparent;
+  transition: all 0.4s; }
+  .form__input:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #55c57a; }
+  .form__input:focus:invalid {
+    border-bottom: 3px solid #ff7730; }
+  .form__input::-webkit-input-placeholder {
+    color: #999; }
+
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: 0.7;
+  display: block;
+  transition: all 0.4s; }
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-3.5rem); }
+
+.form__radio-input {
+  display: none; }
+
+.form__radio-group {
+  width: 49%;
+  display: inline-block; }
+
+.form__radio-label {
+  font-size: 2rem;
+  position: relative;
+  padding-left: 3rem;
+  cursor: pointer; }
+
+.form__radio-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0.4rem solid #55c57a;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0.1rem; }
+  .form__radio-button::after {
+    content: "";
+    display: block;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #55c57a;
+    opacity: 0;
+    transition: opacity 0.2s; }
+
+.form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+  opacity: 1; }
 
 .composition {
   position: relative; }
@@ -464,3 +536,17 @@ body {
 .section-stories {
   position: relative;
   padding: 15rem 0; }
+
+.section-form {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
+
+.book {
+  background-image: linear-gradient(75deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url("../img/nat-10.jpg");
+  background-size: cover;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.5);
+  height: 50rem; }
+  .book__form {
+    width: 50%;
+    padding: 6rem; }

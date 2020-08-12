@@ -7,7 +7,7 @@
   padding: 6rem;
   padding-left: 9rem;
   position: relative;
-  backface-visibility: hidden;
+  //   backface-visibility: hidden;
   font-size: $default-font-size;
   transform: skewX(-12deg);
 
@@ -15,7 +15,6 @@
     width: 15rem;
     height: 15rem;
     float: left;
-    backface-visibility: hidden;
     // 50% of height
     // 50% 50% to center it
     -webkit-shape-outside: circle(50% at 50% 50%);
@@ -23,16 +22,17 @@
     // shape-margin: 30rem;
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(35 at 50% 50%);
+
     // best way to seperate to parts is transform:
-    transform: translateX(-3rem) skewX(+12deg);
+    transform: translateX(-4rem) skewX(+12deg);
     // transform: skewX(-2deg);
   }
 
   &__img {
     // width: 100%;
     height: 100%;
-    transform: translateX(-4rem) scale(1.4);
-    backface-visibility: hidden;
+    transform: translateX(-4rem) scale(1.3);
+    // backface-visibility: hidden;
     transition: all 0.5s;
   }
   &__text {
@@ -51,7 +51,7 @@
     opacity: 0;
     transition: all 0.5s;
 
-    backface-visibility: hidden;
+    // backface-visibility: hidden;
   }
   &:hover &__caption {
     opacity: 1;
@@ -60,8 +60,7 @@
   }
   &:hover &__img {
     transform: translateX(-4rem) scale(1);
-    // transform: translate(-50%, -50%);
     backface-visibility: hidden;
-    filter: blur(2px) brightness(80%);
+    filter: blur(4px) brightness(80%);
   }
 }
