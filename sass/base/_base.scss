@@ -10,10 +10,29 @@ html {
   /* // this will declare the root font size */
   /* // 10 is easy to work with it in rem and em */
   /* to handle changes in default font that people make */
-  font-size: 62.5%;
+  font-size: 62.5%; // 1rem = 10px; 10/60 = 62.5%;
+
+  // aval bozorg tar ha bad kuchik tar ha
+  @include respond(tab-land) {
+    font-size: 56.25%; //1rem = 8px, 9/16 = 56.25
+  }
+  @include respond(tab-port) {
+    font-size: 50%; //1 rem 8px, 8/16 = 50%
+  }
+  @include respond(phone) {
+    font-size: 37.5%; //1 rem 8px, 6/16 = 50%
+  }
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
 }
 
 body {
   /* here we declare a better one */
   box-sizing: border-box;
+  /* to make a white border around page */
+  padding: 3rem;
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }

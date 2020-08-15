@@ -14,6 +14,11 @@
     z-index: 2000;
     box-shadow: 0 1rem 3rem rgba($color-black, 0.15);
     text-align: center;
+
+    @include respond(tab-port) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
   }
   &__background {
     height: 5rem;
@@ -24,6 +29,12 @@
       $color-primary-light,
       $color-primary-dark
     );
+
+    @include respond(tab-port) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
+
     top: 6.5rem;
     right: 6.5rem;
     z-index: 1000;
