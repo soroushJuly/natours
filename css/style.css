@@ -505,7 +505,7 @@ body {
     object-fit: cover; }
 
 .popup {
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.75);
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -514,6 +514,7 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s;
+  backdrop-filter: blur(10px);
   z-index: 4000; }
   .popup:target {
     opacity: 1;
@@ -569,7 +570,7 @@ body {
 .header {
   height: 95vh;
   /* gradient then the image */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero-small.jpg);
   background-size: cover;
   /* to make the top of image stable as the screen changes */
   background-position: top;
@@ -577,6 +578,9 @@ body {
   position: relative;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  @media (min-resolution: 192dpi) and (min-width: 600px) {
+    .header {
+      background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.8), rgba(255, 119, 48, 0.8)), url(../img/hero.jpg); } }
   @media (max-width: 37.5em) {
     .header {
       webkit-clip-path: polygon(0 0, 100% 0, 100% 88vh, 0 100%);
